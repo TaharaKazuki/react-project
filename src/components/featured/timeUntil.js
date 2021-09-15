@@ -1,5 +1,4 @@
-import { render } from '@testing-library/react'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Slide } from 'react-awesome-reveal'
 
 const TimeUntil = () => {
@@ -12,14 +11,15 @@ const TimeUntil = () => {
 
   const getTimeUntil = (deadline) => {
     const time = Date.parse(deadline) - Date.parse(new Date())
-    return time
-    // if (time < 0) {
-    //   return time
-    // }
+    if (time < 0) {
+      console.info('Date passed')
+    } else {
+      console.info('still goin on')
+    }
   }
 
   useEffect(() => {
-    setInterval(() => getTimeUntil('Jan, 20, 2021, 01:20:00'), 1000)
+    setInterval(() => getTimeUntil('Nov, 20, 2021, 01:20:00'), 1000)
   }, [getTimeUntil])
 
   return (
