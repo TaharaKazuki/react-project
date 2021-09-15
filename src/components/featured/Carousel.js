@@ -14,23 +14,25 @@ const Carousel = () => {
     speed: 500
   }
 
+  const carouselItem = (imageInfo) => (
+    <div>
+      <div
+        className="carrousel_image"
+        style={{
+          background: `url(${imageInfo.url})`,
+          height: `${window.innerHeight}px`
+        }}
+      />
+    </div>
+  )
+
   return (
     <div
       className="carousel_wrapper"
       style={{ height: `${window.innerHeight}px` }}
     >
       <Slider {...setting}>
-        {carouselImages.map((imageInfo) => (
-          <div>
-            <div
-              className="carrousel_image"
-              style={{
-                background: `url(${imageInfo.url})`,
-                height: `${window.innerHeight}px`
-              }}
-            />
-          </div>
-        ))}
+        {carouselImages.map((imageInfo) => carouselItem(imageInfo))}
       </Slider>
     </div>
   )
