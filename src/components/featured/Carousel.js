@@ -14,8 +14,8 @@ const Carousel = () => {
     speed: 500
   }
 
-  const carouselItem = (imageInfo) => (
-    <div>
+  const carouselItem = (imageInfo, index) => (
+    <div key={index}>
       <div
         className="carrousel_image"
         style={{
@@ -32,7 +32,9 @@ const Carousel = () => {
       style={{ height: `${window.innerHeight}px` }}
     >
       <Slider {...setting}>
-        {carouselImages.map((imageInfo) => carouselItem(imageInfo))}
+        {carouselImages.map((imageInfo, index) =>
+          carouselItem(imageInfo, index)
+        )}
       </Slider>
     </div>
   )
