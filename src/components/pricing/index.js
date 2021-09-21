@@ -50,7 +50,7 @@ const Pricing = () => {
             </div>
         </div>
     </div> 
-)
+  )
 }
 
 export default Pricing
