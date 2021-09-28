@@ -18,13 +18,13 @@ const TimeUntil = () => {
 
   const getTimeUntil = useCallback((deadline) => {
     const time = Date.parse(deadline) - Date.parse(new Date())
-    if (time < 0) {
-      console.info('Date passed')
-    } else {
-      const seconds = Math.floor((time / 1000) % 60)
-      const minutes = Math.floor((time / 1000 / 60) % 60)
-      const hours = Math.floor((time / (1000 * 60 * 60)) % 24)
-      const days = Math.floor(time / (1000 * 60 * 60 * 24))
+    // if (time < 0) {
+    //   console.info('Date passed')
+    // } else {
+      const seconds = Math.floor((time / 1000) % 60)*-1
+      const minutes = Math.floor((time / 1000 / 60) % 60)*-1
+      const hours = Math.floor((time / (1000 * 60 * 60)) % 24)*-1
+      const days = Math.floor(time / (1000 * 60 * 60 * 24))*-1
 
       setTime({
         days,
@@ -32,11 +32,11 @@ const TimeUntil = () => {
         minutes,
         seconds
       })
-    }
+    // }
   }, [])
 
   useEffect(() => {
-    setInterval(() => getTimeUntil('Nov, 20, 2021, 01:20:00'), 1000)
+    setInterval(() => getTimeUntil('Sep, 11, 2021, 01:00:00'), 1000)
   }, [getTimeUntil])
 
   return (
